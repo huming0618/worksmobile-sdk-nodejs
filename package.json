@@ -1,0 +1,26 @@
+{
+  "name": "worksmobile-sdk-nodejs",
+  "version": "0.1.0",
+  "description": "SDK for worksmobile open platform",
+  "files": ["lib/**/*"],
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node app.ts",
+    "build": "tsc",
+    "test": "test"
+  },
+  "keywords": [
+    "worksmobile"
+  ],
+  "author": "Peter Hu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "log4js": "^6.3.0"
+  }
+}
