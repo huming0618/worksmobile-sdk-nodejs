@@ -1,10 +1,12 @@
 import axios from 'axios'
 
+const WORKSMOBILE_API_HOST = 'apis.worksmobile.com'
+
 class WorksmobileSDK{
     apiId:string = ''
     apiConsumerKey: string=''
     apiAuthToken:string = ''
-    option:{APIHost:string} = {APIHost:''}
+    option:{APIHost:string} = {APIHost:WORKSMOBILE_API_HOST}
 
     constructor(apiId: string, apiConsumerKey:string, apiAuthToken: string, option={}){
         this.apiId = apiId
