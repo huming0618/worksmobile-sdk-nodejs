@@ -1,1 +1,1 @@
-exports.default = require('./lib')
+exports.WorksmobileSDK = require('./lib').default
