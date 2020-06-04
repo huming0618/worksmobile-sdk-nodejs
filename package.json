@@ -9,7 +9,14 @@
   "scripts": {
     "dev": "ts-node app.ts",
     "build": "tsc",
-    "test": "test"
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "worksmobile"
@@ -18,7 +25,13 @@
   "license": "ISC",
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.9.3"
   },
   "dependencies": {

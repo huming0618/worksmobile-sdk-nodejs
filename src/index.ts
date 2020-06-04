@@ -1,47 +1,64 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const WORKSMOBILE_API_HOST = 'apis.worksmobile.com'
+const WORKSMOBILE_API_PREFIX = 'apis.worksmobile.com/r';
 
-class WorksmobileSDK{
-    apiId:string = ''
-    apiConsumerKey: string=''
-    apiAuthToken:string = ''
-    option:{APIHost:string} = {APIHost:WORKSMOBILE_API_HOST}
+type SDKOption = {
+  APIPrefix: string;
+};
 
-    constructor(apiId: string, apiConsumerKey:string, apiAuthToken: string, option={}){
-        this.apiId = apiId
-        this.apiConsumerKey = apiConsumerKey
-        this.apiAuthToken = apiAuthToken
-        Object.assign(this.option, option)
-    }
+class WorksmobileSDK {
+  apiId: string = '';
+  apiConsumerKey: string = '';
+  apiAuthToken: string = '';
+  option: SDKOption = { APIPrefix: WORKSMOBILE_API_PREFIX };
 
-    sendBotMessageToRoom(botNo:number, roomId:string, content:string){
-        const APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIHost, this.apiId)
-        const headers = {
-            "consumerKey": this.apiConsumerKey,
-            "Authorization": this.apiAuthToken,
-            "Content-type": "application/json"
-        }
-        axios.post(APIUrl, {
-            "botNo": botNo,
-            "roomId": roomId,
-            "content": content
-        }, {headers})
-    }
+  constructor(
+    apiId: string,
+    apiConsumerKey: string,
+    apiAuthToken: string,
+    option: SDKOption = { APIPrefix: WORKSMOBILE_API_PREFIX },
+  ) {
+    this.apiId = apiId;
+    this.apiConsumerKey = apiConsumerKey;
+    this.apiAuthToken = apiAuthToken;
+    Object.assign(this.option, option);
+  }
 
-    sendBotMessageToUser(botNo:number, userId:string, content:string){
-        const APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIHost, this.apiId)
-        const headers = {
-            "consumerKey": this.apiConsumerKey,
-            "Authorization": this.apiAuthToken,
-            "Content-type": "application/json"
-        }
-        axios.post(APIUrl, {
-            "botNo": botNo,
-            "accountId": userId,
-            "content": content
-        }, {headers})
-    }
+  sendBotMessageToRoom(botNo: number, roomId: string, content: string) {
+    const APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIPrefix, this.apiId);
+    const headers = {
+      consumerKey: this.apiConsumerKey,
+      Authorization: this.apiAuthToken,
+      'Content-type': 'application/json',
+    };
+    axios.post(
+      APIUrl,
+      {
+        botNo,
+        roomId,
+        content
+      },
+      { headers },
+    );
+  }
+
+  sendBotMessageToUser(botNo: number, userId: string, content: string) {
+    const APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIPrefix, this.apiId);
+    const headers = {
+      consumerKey: this.apiConsumerKey,
+      Authorization: this.apiAuthToken,
+      'Content-type': 'application/json',
+    };
+    axios.post(
+      APIUrl,
+      {
+        botNo,
+        accountId: userId,
+        content
+      },
+      { headers },
+    );
+  }
 }
 
-export default WorksmobileSDK
+export default WorksmobileSDK;
