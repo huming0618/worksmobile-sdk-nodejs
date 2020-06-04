@@ -1,5 +1,5 @@
-class APIUtil {
-  static getSendMessageAPIUrl(APIHost: string, apiId: string) {
-    return `https://${APIHost}/${apiId}/message/sendMessage/v2`;
+export default class APIUtil {
+  static getSendMessageAPIUrl(APIPefix: string, apiId: string) {
+    return `https://${APIPefix}/${apiId}/message/sendMessage/v2`;
   }
 }
