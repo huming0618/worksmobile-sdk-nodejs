@@ -15,6 +15,11 @@ class WorksmobileSDK{
         Object.assign(this.option, option)
     }
 
+    static getJWTAuthToken(privateKey:string, createOn = Date.now()/1000, duration = 300){
+        const payload = {"iss": server_id, "iat": token_createon, "exp": token_expireon}
+        jwt_token = jwt.encode(payload, private_key, algorithm='RS256')
+    }
+
     sendBotMessageToRoom(botNo:number, roomId:string, content:string){
         const APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIHost, this.apiId)
         const headers = {
