@@ -9,7 +9,7 @@ class WorksmobileSDK{
     apiId:string = ''
     apiConsumerKey: string=''
     apiAuthToken:string = ''
-    option:{APIHost:string} = {APIHost:WORKSMOBILE_API_HOST}
+    option:{APIHost:string} = {APIHost:WORKSMOBILE_API_HOST,}
 
     constructor(apiId: string, apiConsumerKey:string, apiAuthToken: string, option={}){
         this.apiId = apiId
