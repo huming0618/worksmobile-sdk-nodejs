@@ -45,7 +45,7 @@ class WorksmobileSDK{
 
         return axios.post(APIUrl, {
             "botNo": botNo,
-            "roomId": roomId.toString,
+            "roomId": roomId.toString(),
             "content": content
         }, {headers})
     }
