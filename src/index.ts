@@ -36,7 +36,8 @@ class WorksmobileSDK{
     }
 
     sendBotMessageToRoom(botNo:number, roomId:string, content:string){
-        let APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIHost, this.apiId)
+        //let APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIHost, this.apiId)
+        let APIUrl = APIUtil.getPushMessageAPIUrl(this.option.APIHost, this.apiId, botNo)
         const headers = {
             "consumerKey": this.apiConsumerKey,
             "Authorization": this.apiAuthToken,
@@ -51,7 +52,8 @@ class WorksmobileSDK{
     }
 
     sendBotMessageToUser(botNo:number, userId:string, content:string){
-        let APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIHost, this.apiId)
+        //let APIUrl = APIUtil.getSendMessageAPIUrl(this.option.APIHost, this.apiId)
+        let APIUrl = APIUtil.getPushMessageAPIUrl(this.option.APIHost, this.apiId, botNo)
         const headers = {
             "consumerKey": this.apiConsumerKey,
             "Authorization": this.apiAuthToken,
