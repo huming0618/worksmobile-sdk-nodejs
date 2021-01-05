@@ -60,6 +60,20 @@ class WorksmobileSDK {
       { headers },
     );
   }
+
+  setRichMenuForBot(botNo: number, richMenu:any){
+    const APIUrl = APIUtil.getRichMenuUrl(this.option.APIPrefix, this.apiId, botNo);
+    const headers = {
+      consumerKey: this.apiConsumerKey,
+      Authorization: this.apiAuthToken,
+      'Content-type': 'application/json',
+    };
+    axios.post(
+      APIUrl,
+      richMenu,
+      { headers }
+    );
+  }
 }
 
 export default WorksmobileSDK;
