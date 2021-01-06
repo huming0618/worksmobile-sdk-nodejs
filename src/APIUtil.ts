@@ -1,10 +1,14 @@
 export default class APIUtil {
-  static getSendMessageAPIUrl(APIPefix: string, apiId: string) {
-    return `https://${APIPefix}/${apiId}/message/sendMessage/v2`;
-  }
+    static getSendMessageAPIUrl(APIHost:string, apiId:string){
+        return `${APIHost}/${apiId}/message/sendMessage/v2`
+    }
 
-  static getRichMenuUrl(APIPefix: string, apiId: string, botNo:number) {
-    //https://apis.worksmobile.com/r/{API ID}/message/v1/bot/{botNo}/richmenu
-    return `https://${APIPefix}/${apiId}/message/v1/bot/${botNo}/richmenu`;
-  }
+    static getPushMessageAPIUrl(APIHost:string, apiId:string, botNo:number){
+        return `${APIHost}/r/${apiId}/message/v1/bot/${botNo}/message/push`
+    }
+
+    static getRichMenuUrl(APIHost: string, apiId: string, botNo:number) {
+      //https://apis.worksmobile.com/r/{API ID}/message/v1/bot/{botNo}/richmenu
+      return `https://${APIHost}/${apiId}/message/v1/bot/${botNo}/richmenu`;
+    }
 }

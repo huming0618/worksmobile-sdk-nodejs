@@ -43,6 +43,7 @@ class RichMenu {
         this.menu.areas.push({
             bounds, action
         })
+        return this
     }
 
     getJSON(){
@@ -50,7 +51,7 @@ class RichMenu {
     }
 }
 
-export class RichMenuFactory {
+export default class RichMenuFactory {
     static create(name:string):RichMenu {
         return new RichMenu(name)
     }
